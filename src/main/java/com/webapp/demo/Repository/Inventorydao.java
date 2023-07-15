@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.webapp.demo.Model.Inventory;
+import com.webapp.demo.Model.Sale;
 
 public interface Inventorydao extends JpaRepository<Inventory, Integer> {
     @Modifying
@@ -21,5 +22,7 @@ public interface Inventorydao extends JpaRepository<Inventory, Integer> {
     @Transactional
     @Modifying
     void deleteByDateBefore(LocalDate date);
+
+    Inventory findByProductId(int productId);
 
 }
